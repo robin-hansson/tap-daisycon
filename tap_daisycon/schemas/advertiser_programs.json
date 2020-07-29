@@ -1,0 +1,332 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "advertiser_id": {
+            "type": "integer"
+        },
+        "name": {
+            "type": "string"
+        },
+        "descriptions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "language_id": {
+                        "type": "integer"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "incentive_description": {
+                        "type": ["null","string"]
+                    },
+                    "compensationgroup_description": {
+                        "type": "string"
+                    },
+                    "keywordmarketing_description": {
+                        "type": "string"
+                    },
+                    "product_listing_ads_description": {
+                        "type": "string"
+                    },
+                    "emailmarketing_description": {
+                        "type": "string"
+                    },
+                    "cashback_description": {
+                        "type": "string"
+                    },
+                    "promotion_code_description": {
+                        "type": "string"
+                    },
+                    "socialmedia_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "url": {
+            "type": "string"
+        },
+        "display_url": {
+            "type": "string"
+        },
+        "logo": {
+            "type": "string"
+        },
+        "tracking_duration": {
+            "type": "integer"
+        },
+        "tracking_segment": {
+            "type": "string"
+        },
+        "startdate": {
+            "type": "string"
+        },
+        "enddate": {
+            "type": "string"
+        },
+        "primary_category_id": {
+            "type": "integer"
+        },
+        "category_ids": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "locale_ids": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "supply_locale_ids": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "media_group_id": {
+            "type": ["null","integer"]
+        },
+        "status": {
+            "type": "string",
+            "enum": ["active","archived","deverted","pending","cooldown"]
+        },
+        "incentive_date": {
+            "type": ["null","string"],
+            "format": "date"
+        },
+        "keywordmarketing": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "product_listing_ads": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "emailmarketing": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "socialmedia": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "cashback": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "promotion_code": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "publisher_tag": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "productfeed": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "deeplink": {
+            "type": "string",
+            "enum": ["true","false"]
+        },
+        "deeplink_ads": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "provides_data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "field": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "commission": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "min_fixed": {"type": "integer"},
+                "max_fixed": {"type": "integer"},
+                "min_ratio": {"type": "integer"},
+                "max_ratio": {"type": "integer"},
+                "min_cpc": {"type": "integer"},
+                "max_cpc": {"type": "integer"}
+            }
+        },
+        "currency_code": {
+            "type": "string"
+        },
+        "score": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "global": {
+                    "type": "integer"
+                },
+                "performance": {
+                    "type": "integer"
+                },
+                "management": {
+                    "type": "integer"
+                },
+                "media": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "young": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "young_adult": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "adult": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "older_adult": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "elderly": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        }
+                    }
+                },
+                "program": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "young": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "young_adult": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "adult": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "older_adult": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        },
+                        "elderly": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "male": {"type": "integer"},
+                                    "female": {"type": "integer"}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "type": {
+            "type": "string",
+            "enum": ["app","blog","cashback","content_site","daily_offer","directory","free_content","coupon_site","reseller","comparison","keyword_marketing","auction","display_network","technology_partner","plugin","incentive","non_incentive","facebook","instagram","pinterest","twitter","youtube"]
+        },
+        "transaction_approval_time": {
+            "type": "integer"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "customer_number": {
+            "type": "string"
+        },
+        "company_name": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "tracking_level": {
+            "type": "string"
+        },
+        "agreement_terms": {
+            "type": "boolean"
+        },
+        "autoacceptance": {
+            "type": "integer"
+        }
+    }
+}

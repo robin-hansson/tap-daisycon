@@ -1,0 +1,94 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "advertiser_id": {
+            "type": "integer"
+        },
+        "program_id": {
+            "type": "integer"
+        },
+        "date": {
+            "type": "string",
+            "format": "date"
+        },
+        "click_raw": {
+            "type": "integer"
+        },
+        "click_unique": {
+            "type": "integer"
+        },
+        "cpc_raw": {
+            "type": "integer"
+        },
+        "cpc_unique": {
+            "type": "integer"
+        },
+        "cpc_amount": {
+            "type": "number"
+        },
+        "clickout_raw": {
+            "type": "integer"
+        },
+        "clickout_unique": {
+            "type": "integer"
+        },
+        "clickout_amount": {
+            "type": "number"
+        },
+        "transaction_unique": {
+            "type": "integer"
+        },
+        "transaction_parts": {
+            "type": "integer"
+        },
+        "transaction_amount": {
+            "type": "number"
+        },
+        "transaction_program_amount": {
+            "type": "number"
+        },
+        "transaction_revenue": {
+            "type": "number"
+        },
+        "transaction_open": {
+            "type": "integer"
+        },
+        "transaction_open_parts": {
+            "type": "integer"
+        },
+        "transaction_open_amount": {
+            "type": "number"
+        },
+        "transaction_open_program_amount": {
+            "type": "number"
+        },
+        "transaction_approved": {
+            "type": "integer"
+        },
+        "transaction_approved_parts": {
+            "type": "integer"
+        },
+        "transaction_approved_amount": {
+            "type": "number"
+        },
+        "transaction_approved_program_amount": {
+            "type": "number"
+        },
+        "transaction_disapproved": {
+            "type": "integer"
+        },
+        "transaction_disapproved_parts": {
+            "type": "integer"
+        },
+        "transaction_disapproved_amount": {
+            "type": "number"
+        },
+        "transaction_disapproved_program_amount": {
+            "type": "number"
+        },
+        "currency_code": {
+            "type": "string"
+        }
+    }
+}
