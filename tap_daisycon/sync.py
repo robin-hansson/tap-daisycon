@@ -12,9 +12,28 @@ LOGGER = singer.get_logger()
 BASE_URL = 'https://api.awin.com'
 
 
+def transform_schema(schema):
+    # this hack to replace 'multipleOf' with 'multipleOfPrecision' is necessary because the
+    # jsonschema validator does not support precisition of decimals (only on integers); and
+    # multipleOfPrecision is somehow removed from the schema before the Transformer pre_hock
+    # is called
+    import copy
+    for k in schema.copy():
+        if k == 'properties':
+            for p in schema['properties']:
+                schema['properties'][p] = transform_schema(schema['properties'][p])
+        if k == 'items':
+            schema['items'] = transform_schema(schema['items'])
+        if k == 'multipleOf':
+            schema['multipleOfPrecision'] = schema['multipleOf']
+            del schema['multipleOf']
+
+    return schema
+
 def write_schema(catalog, stream_name):
     stream = catalog.get_stream(stream_name)
     schema = stream.schema.to_dict()
+    schema = transform_schema(schema)
     try:
         singer.write_schema(stream_name, schema, stream.key_properties)
     except OSError as err:
@@ -73,6 +92,17 @@ def write_bookmark(state, stream, value, bookmark_field=None, parent=None, paren
         stream, parent, parent_id, value))
     singer.write_state(state)
 
+def transform_pre_hook(data, typ, schema):
+    if typ == 'number':
+        if schema.get('multipleOf'):
+            max_decimal_palces = len(str(schema.get('multipleOf')))-2
+            if max_decimal_palces < 0:
+                max_decimal_palces = 0
+            if isinstance(data, float):
+                return round(data, max_decimal_palces)
+
+    return data
+
 def process_records(catalog, #pylint: disable=too-many-branches
                     stream_name,
                     records,
@@ -87,7 +117,7 @@ def process_records(catalog, #pylint: disable=too-many-branches
     with metrics.record_counter(stream_name) as counter:
         for record in records:
             # Transform record for Singer.io
-            with Transformer() as transformer:
+            with Transformer(pre_hook=transform_pre_hook) as transformer:
                 import json
                 transformed_record = transformer.transform(
                     record,

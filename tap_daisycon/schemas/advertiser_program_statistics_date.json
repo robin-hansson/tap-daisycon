@@ -25,7 +25,8 @@
             "type": "integer"
         },
         "cpc_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "clickout_raw": {
             "type": "integer"
@@ -34,7 +35,8 @@
             "type": "integer"
         },
         "clickout_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_unique": {
             "type": "integer"
@@ -43,13 +45,16 @@
             "type": "integer"
         },
         "transaction_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_program_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_revenue": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_open": {
             "type": "integer"
@@ -58,10 +63,12 @@
             "type": "integer"
         },
         "transaction_open_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_open_program_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_approved": {
             "type": "integer"
@@ -70,10 +77,12 @@
             "type": "integer"
         },
         "transaction_approved_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_approved_program_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_disapproved": {
             "type": "integer"
@@ -82,10 +91,12 @@
             "type": "integer"
         },
         "transaction_disapproved_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "transaction_disapproved_program_amount": {
-            "type": "number"
+            "type": "number",
+            "multipleOf": 0.01
         },
         "currency_code": {
             "type": "string"
