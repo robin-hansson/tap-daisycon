@@ -128,7 +128,6 @@ def process_records(catalog, #pylint: disable=too-many-branches
                 if bookmark_field and (bookmark_field in transformed_record):
                     bookmark_date = transformed_record.get(bookmark_field)
                     bookmark_dttm = strptime_to_utc(bookmark_date)
-                    last_dttm = strptime_to_utc(last_datetime)
 
                     if not max_bookmark_value:
                         max_bookmark_value = last_datetime
@@ -138,16 +137,9 @@ def process_records(catalog, #pylint: disable=too-many-branches
                     if bookmark_dttm > max_bookmark_dttm:
                         max_bookmark_value = strftime(bookmark_dttm)
 
-                    # Keep only records whose bookmark is after the last_datetime
-                    if bookmark_dttm >= last_dttm:
-                        # LOGGER.info('record1: {}'.format(record)) # TESTING, comment out
-                        write_record(stream_name, transformed_record, \
-                            time_extracted=time_extracted)
-                        counter.increment()
-                else:
-                    # LOGGER.info('record2: {}'.format(record)) # TESTING, comment out
-                    write_record(stream_name, transformed_record, time_extracted=time_extracted)
-                    counter.increment()
+                # LOGGER.info('record: {}'.format(record)) # TESTING, comment out
+                write_record(stream_name, transformed_record, time_extracted=time_extracted)
+                counter.increment()
 
         LOGGER.info('Stream: {}, Processed {} records'.format(stream_name, counter.value))
         return max_bookmark_value, counter.value
@@ -183,17 +175,12 @@ def sync_endpoint(
 
     # tap config variabless
     start_date = config.get('start_date')
-    swipe_up_attribution_window = config.get('swipe_up_attribution_window', '28_DAY')
-    view_attribution_window = config.get('view_attribution_window', '1_DAY')
+    swipe_up_attribution_window = config.get('swipe_up_attribution_window', '30_DAY')
 
     swipe_up_attr = int(swipe_up_attribution_window.replace('_DAY', ''))
 
-    if view_attribution_window in ('1_HOUR', '3_HOUR', '6_HOUR',):
-        view_attr = 1
-    else:
-        view_attr = int(view_attribution_window.replace('_DAY', ''))
-
-    attribution_window = max(1, swipe_up_attr, view_attr)
+    attribution_window = max(1, swipe_up_attr)
+    LOGGER.info(f'attribution window: {attribution_window}')
 
     # Get the timezone and latest bookmark for the stream
     if not timezone_desc:
