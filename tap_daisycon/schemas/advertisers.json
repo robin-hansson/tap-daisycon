@@ -21,7 +21,10 @@
             "type": "boolean"
         },
         "autoacceptance": {
-            "type": "integer"
+            "type": ["null","integer"]
+        },
+        "subscription_auto_approval_days": {
+            "type": ["null","integer"]
         }
     }
 }
