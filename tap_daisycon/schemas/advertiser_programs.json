@@ -13,42 +13,7 @@
         },
         "descriptions": {
             "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "language_id": {
-                        "type": "integer"
-                    },
-                    "description": {
-                        "type": "string"
-                    },
-                    "incentive_description": {
-                        "type": ["null","string"]
-                    },
-                    "compensationgroup_description": {
-                        "type": "string"
-                    },
-                    "keywordmarketing_description": {
-                        "type": "string"
-                    },
-                    "product_listing_ads_description": {
-                        "type": "string"
-                    },
-                    "emailmarketing_description": {
-                        "type": "string"
-                    },
-                    "cashback_description": {
-                        "type": "string"
-                    },
-                    "promotion_code_description": {
-                        "type": "string"
-                    },
-                    "socialmedia_description": {
-                        "type": "string"
-                    }
-                }
-            }
+            "items": {}
         },
         "url": {
             "type": "string"
@@ -142,185 +107,22 @@
         },
         "deeplink_ads": {
             "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "id": {
-                        "type": "integer"
-                    },
-                    "name": {
-                        "type": "string"
-                    }
-                }
-            }
+            "items": {}
         },
         "provides_data": {
             "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "field": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    }
-                }
-            }
+            "items": {}
         },
         "commission": {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "min_fixed": {"type": "integer"},
-                "max_fixed": {"type": "integer"},
-                "min_ratio": {"type": "integer"},
-                "max_ratio": {"type": "integer"},
-                "min_cpc": {"type": "integer"},
-                "max_cpc": {"type": "integer"}
-            }
+            "properties": {}
         },
         "currency_code": {
             "type": "string"
         },
         "score": {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "global": {
-                    "type": "integer"
-                },
-                "performance": {
-                    "type": "integer"
-                },
-                "management": {
-                    "type": "integer"
-                },
-                "media": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "young": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "young_adult": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "adult": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "older_adult": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "elderly": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        }
-                    }
-                },
-                "program": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "young": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "young_adult": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "adult": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "older_adult": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        },
-                        "elderly": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "male": {"type": "integer"},
-                                    "female": {"type": "integer"}
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            "properties": {}
         },
         "type": {
             "type": "string",

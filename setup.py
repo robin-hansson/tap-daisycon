@@ -14,10 +14,10 @@ setup(name='tap-daisycon',
           'backoff==1.8.0',
           'requests==2.24.0'
       ],
-      entry_points='''
-          [console_scripts]
-          tap-daisycon=tap_daisycon:main
-      ''',
+      entry_points={
+          "console_scripts":
+          ["tap-daisycon=tap_daisycon:main"]
+      },
       packages=find_packages(),
       package_data = {
           'tap_daisycon': [
